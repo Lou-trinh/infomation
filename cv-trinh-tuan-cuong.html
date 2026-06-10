@@ -1,0 +1,773 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Trịnh Tuấn Cường — CV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Sora:wght@700;800&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --dark:       #0d1b2e;
+      --dark-2:     #162236;
+      --dark-3:     #1e3050;
+      --accent:     #3b82f6;
+      --accent-dim: rgba(59,130,246,.18);
+      --accent-glow:rgba(59,130,246,.35);
+      --white:      #ffffff;
+      --off-white:  #f0f4f8;
+      --text:       #1e293b;
+      --muted:      #64748b;
+      --border:     #e2e8f0;
+      --green:      #16a34a;
+      --green-bg:   #dcfce7;
+      --green-bd:   #86efac;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #12082a;
+      min-height: 100vh;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    /* ── animated background ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background:
+        radial-gradient(ellipse 70% 55% at 15% 25%, rgba(139,92,246,.45) 0%, transparent 60%),
+        radial-gradient(ellipse 55% 50% at 85% 15%, rgba(236,72,153,.3)  0%, transparent 55%),
+        radial-gradient(ellipse 65% 55% at 65% 85%, rgba(6,182,212,.28)  0%, transparent 55%),
+        radial-gradient(ellipse 50% 45% at 5%  75%, rgba(16,185,129,.2)  0%, transparent 50%);
+      pointer-events: none;
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      background-image:
+        radial-gradient(circle 1px at 1px 1px, rgba(255,255,255,.07) 0%, transparent 0%);
+      background-size: 32px 32px;
+      pointer-events: none;
+    }
+
+    .cv { position: relative; z-index: 1; }
+
+    /* ── language ── */
+    body.lang-en .vi { display: none !important; }
+    body.lang-vi .en { display: none !important; }
+
+    /* ══════════ WRAPPER ══════════ */
+    .cv {
+      display: grid;
+      grid-template-columns: 272px 1fr;
+      max-width: 900px;
+      margin: 40px auto 60px;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 0 0 1px rgba(255,255,255,.06), 0 24px 80px rgba(0,0,0,.6), 0 8px 32px rgba(139,92,246,.2);
+    }
+
+    /* ══════════ DARK SIDEBAR ══════════ */
+    .sidebar {
+      background: linear-gradient(160deg, #0d1b2e, #1a1040, #0d2236);
+      background-size: 300% 300%;
+      animation: sidebarShift 10s ease-in-out infinite alternate;
+      color: var(--white);
+      padding: 40px 28px 40px;
+      display: flex;
+      flex-direction: column;
+      gap: 28px;
+      position: relative;
+      overflow: hidden;
+    }
+    @keyframes sidebarShift {
+      0%   { background-position: 0%   0%;   }
+      33%  { background-position: 100% 50%;  }
+      66%  { background-position: 50%  100%; }
+      100% { background-position: 0%   50%;  }
+    }
+    .sidebar::before {
+      content: '';
+      position: absolute;
+      top: -100px; left: -80px;
+      width: 320px; height: 320px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(59,130,246,.22) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .sidebar::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; right: -60px;
+      width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(124,58,237,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    /* avatar */
+    .avatar-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .avatar-ring {
+      padding: 4px;
+      border-radius: 14px;
+      background: linear-gradient(135deg, var(--accent), #7c3aed);
+      box-shadow: 0 0 24px var(--accent-glow);
+      animation: ringPulse 4s ease-in-out infinite;
+    }
+    @keyframes ringPulse {
+      0%, 100% { box-shadow: 0 0 20px var(--accent-glow); }
+      50%       { box-shadow: 0 0 40px rgba(124,58,237,.5), 0 0 60px rgba(59,130,246,.25); }
+    }
+    .avatar-ring img {
+      display: block;
+      width: 130px;
+      height: 162px;
+      border-radius: 10px;
+      object-fit: cover;
+      object-position: center top;
+      background: #fff;
+    }
+    .av-name {
+      font-family: 'Sora', sans-serif;
+      font-size: 20px;
+      font-weight: 800;
+      text-align: center;
+      line-height: 1.25;
+      letter-spacing: -.3px;
+    }
+    .av-role {
+      font-size: 11px;
+      font-weight: 500;
+      color: #93c5fd;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* sidebar section */
+    .sb-section { position: relative; z-index: 1; }
+    .sb-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: #93c5fd;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+      border-bottom: 1px solid rgba(255,255,255,.1);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* contact */
+    .contact-list { display: flex; flex-direction: column; gap: 9px; }
+    .contact-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: #cbd5e1;
+      line-height: 1.5;
+    }
+    .contact-row svg { flex-shrink: 0; opacity: .7; margin-top: 1px; }
+    .contact-row a { color: #cbd5e1; text-decoration: none; }
+    .contact-row a:hover { color: #fff; }
+
+    /* skills */
+    .skill-block { margin-bottom: 14px; }
+    .skill-block:last-child { margin-bottom: 0; }
+    .skill-label {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: rgba(255,255,255,.5);
+      text-transform: uppercase;
+      letter-spacing: .8px;
+      margin-bottom: 7px;
+    }
+    .tag-row { display: flex; flex-wrap: wrap; gap: 5px; }
+    .tag {
+      padding: 3px 9px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      background: rgba(255,255,255,.08);
+      color: #e2e8f0;
+      border: 1px solid rgba(255,255,255,.12);
+    }
+    .tag.hi {
+      background: var(--accent-dim);
+      border-color: rgba(59,130,246,.4);
+      color: #93c5fd;
+    }
+
+    /* education */
+    .edu-item { margin-bottom: 14px; }
+    .edu-item:last-child { margin-bottom: 0; }
+    .edu-school { font-size: 12.5px; font-weight: 600; color: #e2e8f0; margin-bottom: 2px; }
+    .edu-deg { font-size: 11.5px; color: #94a3b8; margin-bottom: 4px; line-height: 1.45; }
+    .edu-yr {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: #93c5fd;
+      background: var(--accent-dim);
+      border: 1px solid rgba(59,130,246,.3);
+      display: inline-block;
+      padding: 1px 8px;
+      border-radius: 3px;
+    }
+
+    /* certs */
+    .cert-item {
+      display: flex;
+      gap: 8px;
+      align-items: flex-start;
+      margin-bottom: 10px;
+    }
+    .cert-item:last-child { margin-bottom: 0; }
+    .cert-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--accent);
+      flex-shrink: 0;
+      margin-top: 5px;
+    }
+    .cert-name { font-size: 12px; color: #e2e8f0; font-weight: 500; }
+    .cert-yr { font-size: 11px; color: #64748b; }
+
+    /* spoken lang */
+    .spoken-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .spoken-row:last-child { margin-bottom: 0; }
+    .spoken-name { font-size: 12.5px; color: #e2e8f0; }
+    .dots { display: flex; gap: 4px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.15); }
+    .dot.on { background: var(--accent); }
+
+    /* ══════════ MAIN CONTENT ══════════ */
+    .main {
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* dot grid */
+    .main::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(99,102,241,.18) 1px, transparent 1px);
+      background-size: 22px 22px;
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* roving spotlight */
+    .main::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 55% 45% at var(--x, 75%) var(--y, 20%),
+          rgba(139,92,246,.1) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 35% at var(--x2, 25%) var(--y2, 75%),
+          rgba(6,182,212,.08) 0%, transparent 65%);
+      pointer-events: none;
+      z-index: 0;
+      animation: spotlight 14s ease-in-out infinite alternate;
+    }
+    @keyframes spotlight {
+      0%   { --x:75%; --y:20%; --x2:25%; --y2:75%; }
+      25%  { --x:85%; --y:60%; --x2:15%; --y2:30%; }
+      50%  { --x:50%; --y:85%; --x2:60%; --y2:15%; }
+      75%  { --x:20%; --y:40%; --x2:80%; --y2:60%; }
+      100% { --x:65%; --y:10%; --x2:30%; --y2:85%; }
+    }
+
+    /* shimmer sweep line */
+    .main-shimmer {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(105deg,
+        transparent 35%,
+        rgba(255,255,255,.55) 50%,
+        transparent 65%);
+      background-size: 250% 100%;
+      background-position: -100% 0;
+      animation: shimmerSweep 6s ease-in-out infinite;
+      pointer-events: none;
+      z-index: 0;
+    }
+    @keyframes shimmerSweep {
+      0%   { background-position: -100% 0; }
+      60%  { background-position:  200% 0; }
+      100% { background-position:  200% 0; }
+    }
+
+    .topbar, .content { position: relative; z-index: 1; }
+
+    /* top bar with lang toggle */
+    .topbar {
+      background: var(--off-white);
+      border-bottom: 1px solid var(--border);
+      padding: 10px 36px;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .lang-toggle {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      overflow: hidden;
+    }
+    .lang-btn {
+      padding: 5px 16px;
+      border: none;
+      background: transparent;
+      font-family: 'Inter', sans-serif;
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: .5px;
+      color: var(--muted);
+      cursor: pointer;
+      transition: background .15s, color .15s;
+    }
+    .lang-btn.active {
+      background: var(--dark);
+      color: var(--white);
+    }
+
+    /* content area */
+    .content { padding: 32px 36px 36px; display: flex; flex-direction: column; gap: 28px; }
+
+    /* section */
+    .sec-title {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .sec-title::after {
+      content: '';
+      flex: 1;
+      height: 1.5px;
+      background: linear-gradient(to right, #dbeafe, transparent);
+      border-radius: 2px;
+    }
+
+    /* experience */
+    .exp-card {
+      border-left: 3px solid var(--accent);
+      padding-left: 16px;
+      margin-bottom: 0;
+    }
+    .exp-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 10px;
+      margin-bottom: 2px;
+    }
+    .exp-role { font-size: 15px; font-weight: 700; color: var(--text); }
+    .exp-badge {
+      flex-shrink: 0;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent);
+      background: #dbeafe;
+      padding: 3px 10px;
+      border-radius: 20px;
+    }
+    .exp-company { font-size: 12.5px; color: var(--muted); margin-bottom: 12px; }
+    .exp-ul { list-style: none; display: flex; flex-direction: column; gap: 5px; }
+    .exp-ul li {
+      font-size: 13px;
+      color: #334155;
+      padding-left: 14px;
+      position: relative;
+      line-height: 1.6;
+    }
+    .exp-ul li::before {
+      content: '▸';
+      position: absolute; left: 0;
+      color: var(--accent);
+      font-size: 10px;
+      top: 3px;
+    }
+    .tech-row {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 5px;
+      margin-top: 12px;
+    }
+    .tech-lbl {
+      font-size: 10px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: .8px;
+      color: var(--muted); margin-right: 2px;
+    }
+    .chip {
+      background: var(--green-bg);
+      border: 1px solid var(--green-bd);
+      color: var(--green);
+      padding: 2px 8px;
+      border-radius: 3px;
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    /* project */
+    .proj-card {
+      background: var(--off-white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 16px 18px;
+      position: relative;
+      overflow: hidden;
+    }
+    .proj-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent), #7c3aed);
+    }
+    .proj-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .proj-name { font-size: 14px; font-weight: 700; color: var(--text); }
+    .proj-link {
+      display: flex; align-items: center; gap: 4px;
+      font-size: 12px; font-weight: 600;
+      color: var(--accent); text-decoration: none;
+    }
+    .proj-link:hover { text-decoration: underline; }
+    .proj-desc { font-size: 12.5px; color: var(--muted); line-height: 1.65; }
+
+    /* competencies */
+    .comp-grid { display: flex; flex-wrap: wrap; gap: 8px; }
+    .comp {
+      padding: 6px 14px;
+      border: 1.5px solid var(--border);
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 500;
+      color: var(--text);
+      transition: border-color .15s, color .15s;
+    }
+    .comp:hover { border-color: var(--accent); color: var(--accent); }
+
+    /* print */
+    @media print {
+      body { background: white; }
+      .cv { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
+      .topbar { display: none; }
+    }
+
+    @media (max-width: 700px) {
+      .cv { grid-template-columns: 1fr; }
+      .sidebar::after { display: none; }
+    }
+  </style>
+</head>
+<body class="lang-en">
+
+<div class="cv">
+
+  <!-- ════════════ DARK SIDEBAR ════════════ -->
+  <aside class="sidebar">
+
+    <!-- Avatar + Name -->
+    <div class="avatar-wrap">
+      <div class="avatar-ring">
+        <img src="chan_dung.jpg" alt="Trịnh Tuấn Cường" />
+      </div>
+      <div class="av-name">Trịnh Tuấn Cường</div>
+      <div class="av-role">
+        <span class="en">Game Developer<br/>& Frontend Engineer</span>
+        <span class="vi">Lập Trình Viên Game<br/>& Frontend</span>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="sb-section">
+      <div class="sb-title">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.207"/></svg>
+        <span class="en">Contact</span><span class="vi">Liên Hệ</span>
+      </div>
+      <div class="contact-list">
+        <div class="contact-row">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
+          <a href="mailto:loutrinh2312000@gmail.com">loutrinh2312000@gmail.com</a>
+        </div>
+        <div class="contact-row">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
+          <span><span class="en">Vĩnh Hưng, Hà Nội</span><span class="vi">1/14 Đại Đồng, Vĩnh Hưng, Hà Nội</span></span>
+        </div>
+        <div class="contact-row">
+          <svg width="13" height="13" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z"/></svg>
+          <a href="https://github.com/Lou-trinh" target="_blank">github.com/Lou-trinh</a>
+        </div>
+        <div class="contact-row">
+          <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+          <a href="https://lou-trinh.github.io/Game-2D/" target="_blank">Portfolio →</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Technical Skills -->
+    <div class="sb-section">
+      <div class="sb-title">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
+        <span class="en">Technical Skills</span><span class="vi">Kỹ Năng</span>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label">Game Engines</div>
+        <div class="tag-row">
+          <span class="tag hi">Phaser 3</span>
+          <span class="tag hi">Godot 4</span>
+          <span class="tag">GDScript</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label"><span class="en">Languages</span><span class="vi">Ngôn ngữ</span></div>
+        <div class="tag-row">
+          <span class="tag hi">TypeScript</span>
+          <span class="tag hi">JavaScript</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label">Frontend</div>
+        <div class="tag-row">
+          <span class="tag hi">React</span>
+          <span class="tag hi">Next.js</span>
+          <span class="tag">Vite</span>
+          <span class="tag">Firebase</span>
+        </div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-label">Tools</div>
+        <div class="tag-row">
+          <span class="tag">Git</span>
+          <span class="tag">GitHub</span>
+          <span class="tag">Figma</span>
+          <span class="tag">Postman</span>
+          <span class="tag">VS Code</span>
+          <span class="tag">Cursor</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Education -->
+    <div class="sb-section">
+      <div class="sb-title">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"/></svg>
+        <span class="en">Education</span><span class="vi">Học Vấn</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school"><span class="en">Hanoi Open University</span><span class="vi">Đại học Mở Hà Nội</span></div>
+        <div class="edu-deg"><span class="en">Electronics & Telecom Engineering</span><span class="vi">Kỹ thuật Điện tử – Viễn thông</span></div>
+        <span class="edu-yr">2018 – 2023</span>
+      </div>
+      <div class="edu-item">
+        <div class="edu-school">Aptech Việt Nam</div>
+        <div class="edu-deg"><span class="en">International Software Engineering</span><span class="vi">Lập trình viên Quốc tế</span></div>
+        <span class="edu-yr">2023 – 2024</span>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="sb-section">
+      <div class="sb-title">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
+        <span class="en">Certifications</span><span class="vi">Chứng Chỉ</span>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div><div class="cert-name">TOEIC 750/990</div><div class="cert-yr">2025</div></div>
+      </div>
+      <div class="cert-item">
+        <div class="cert-dot"></div>
+        <div>
+          <div class="cert-name"><span class="en">Aptech Intl. Software Engineering</span><span class="vi">Aptech Lập trình viên Quốc tế</span></div>
+          <div class="cert-yr">2024</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spoken Languages -->
+    <div class="sb-section">
+      <div class="sb-title">
+        <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129"/></svg>
+        <span class="en">Languages</span><span class="vi">Ngoại Ngữ</span>
+      </div>
+      <div class="spoken-row">
+        <span class="spoken-name"><span class="en">Vietnamese</span><span class="vi">Tiếng Việt</span></span>
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div></div>
+      </div>
+      <div class="spoken-row">
+        <span class="spoken-name"><span class="en">English</span><span class="vi">Tiếng Anh</span></span>
+        <div class="dots"><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot on"></div><div class="dot"></div></div>
+      </div>
+    </div>
+
+  </aside>
+
+  <!-- ════════════ MAIN ════════════ -->
+  <main class="main">
+    <div class="main-shimmer"></div>
+
+    <!-- top bar -->
+    <div class="topbar">
+      <div class="lang-toggle">
+        <button class="lang-btn active" id="btn-en" onclick="setLang('en')">EN</button>
+        <button class="lang-btn"        id="btn-vi" onclick="setLang('vi')">VI</button>
+      </div>
+    </div>
+
+    <div class="content">
+
+      <!-- Summary -->
+      <div>
+        <div class="sec-title">
+          <span class="en">Professional Summary</span>
+          <span class="vi">Tóm Tắt</span>
+        </div>
+        <p style="font-size:13.5px;color:#475569;line-height:1.75;">
+          <span class="en">Game developer with hands-on experience building 2D games for Web &amp; Mobile using <strong>Phaser 3</strong> and <strong>Godot Engine</strong>. Skilled in gameplay systems, frontend engineering (React, Next.js), and AI-assisted development workflows. Passionate about delivering fast, polished user experiences across platforms.</span>
+          <span class="vi">Lập trình viên game có kinh nghiệm thực tiễn phát triển game 2D cho Web &amp; Mobile bằng <strong>Phaser 3</strong> và <strong>Godot Engine</strong>. Thành thạo gameplay systems, frontend (React, Next.js) và workflow phát triển hỗ trợ AI. Đam mê xây dựng trải nghiệm người dùng mượt mà, hiệu năng cao trên mọi nền tảng.</span>
+        </p>
+      </div>
+
+      <!-- Experience -->
+      <div>
+        <div class="sec-title">
+          <span class="en">Work Experience</span>
+          <span class="vi">Kinh Nghiệm Làm Việc</span>
+        </div>
+        <div class="exp-card">
+          <div class="exp-top">
+            <div class="exp-role">
+              <span class="en">Game Developer — Phaser / Godot</span>
+              <span class="vi">Lập Trình Viên Game — Phaser / Godot</span>
+            </div>
+            <div class="exp-badge">
+              <span class="en">08/2025 – Present</span>
+              <span class="vi">08/2025 – Nay</span>
+            </div>
+          </div>
+          <div class="exp-company">
+            <span class="en">TNG Technology, Media &amp; AI Co., Ltd</span>
+            <span class="vi">Công ty TNHH Công nghệ, Truyền thông và Trí tuệ Nhân tạo TNG</span>
+          </div>
+          <ul class="exp-ul">
+            <li><span class="en">Develop 2D games for Web and Mobile using Phaser 3 and Godot Engine.</span><span class="vi">Phát triển game 2D trên Web và Mobile bằng Phaser 3 và Godot Engine.</span></li>
+            <li><span class="en">Build gameplay mechanics, level systems, UI/UX and animations for casual &amp; puzzle titles.</span><span class="vi">Xây dựng gameplay mechanics, hệ thống level, UI/UX và animation cho game casual và puzzle.</span></li>
+            <li><span class="en">Design and implement save/load, inventory, quest and progression systems.</span><span class="vi">Thiết kế và phát triển save/load, inventory, nhiệm vụ và progression system.</span></li>
+            <li><span class="en">Optimize performance, memory and load times across browsers and mobile devices.</span><span class="vi">Tối ưu hiệu năng, bộ nhớ và tốc độ tải trên trình duyệt và thiết bị di động.</span></li>
+            <li><span class="en">Integrate third-party SDKs, analytics pipelines and in-game advertising.</span><span class="vi">Tích hợp SDK bên thứ ba, analytics và quảng cáo trong game.</span></li>
+            <li><span class="en">Collaborate with Designers, Artists and QA across the full production cycle.</span><span class="vi">Phối hợp với Designer, Artist và QA trong toàn bộ quy trình phát triển.</span></li>
+          </ul>
+          <div class="tech-row">
+            <span class="tech-lbl">Stack</span>
+            <span class="chip">Phaser 3</span>
+            <span class="chip">Godot 4</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">JavaScript</span>
+            <span class="chip">HTML5</span>
+            <span class="chip">Git</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Projects -->
+      <div>
+        <div class="sec-title">
+          <span class="en">Featured Projects</span>
+          <span class="vi">Dự Án Nổi Bật</span>
+        </div>
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">2D Web Game — Portfolio</div>
+            <a class="proj-link" href="https://lou-trinh.github.io/Game-2D/" target="_blank">
+              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Live Demo
+            </a>
+          </div>
+          <div class="proj-desc">
+            <span class="en">A 2D game portfolio deployed on GitHub Pages showcasing gameplay mechanics, UI systems, performance optimization, and cross-browser compatibility. Built with Phaser 3 / Godot and modern web technologies.</span>
+            <span class="vi">Portfolio game 2D triển khai trên GitHub Pages, thể hiện gameplay mechanics, hệ thống UI, tối ưu hiệu năng và tương thích đa trình duyệt. Xây dựng bằng Phaser 3 / Godot và công nghệ web hiện đại.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Core Competencies -->
+      <div>
+        <div class="sec-title">
+          <span class="en">Core Competencies</span>
+          <span class="vi">Năng Lực Cốt Lõi</span>
+        </div>
+        <div class="comp-grid">
+          <span class="comp"><span class="en">Gameplay Programming</span><span class="vi">Gameplay Programming</span></span>
+          <span class="comp"><span class="en">System Design</span><span class="vi">Thiết kế Hệ thống</span></span>
+          <span class="comp"><span class="en">Performance Optimization</span><span class="vi">Tối ưu Hiệu năng</span></span>
+          <span class="comp"><span class="en">Cross-platform Dev</span><span class="vi">Phát triển Đa nền tảng</span></span>
+          <span class="comp"><span class="en">Frontend Engineering</span><span class="vi">Lập trình Frontend</span></span>
+          <span class="comp"><span class="en">AI-assisted Development</span><span class="vi">Phát triển hỗ trợ AI</span></span>
+          <span class="comp"><span class="en">Agile / Git Workflow</span><span class="vi">Agile / Git Workflow</span></span>
+          <span class="comp"><span class="en">Team Collaboration</span><span class="vi">Làm việc Nhóm</span></span>
+        </div>
+      </div>
+
+    </div><!-- /content -->
+  </main>
+
+</div><!-- /cv -->
+
+<script>
+  function setLang(lang) {
+    document.body.className = 'lang-' + lang;
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  }
+</script>
+</body>
+</html>
