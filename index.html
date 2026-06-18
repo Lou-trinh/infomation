@@ -494,9 +494,20 @@
 
     /* print */
     @media print {
-      body { background: white; }
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      body { background: white !important; }
+      body::before, body::after { display: none !important; }
       .cv { margin: 0; border-radius: 0; box-shadow: none; max-width: 100%; }
       .topbar { display: none; }
+      .sidebar {
+        background: #0d1b2e !important;
+        background-image: none !important;
+      }
+      .sidebar::before, .sidebar::after { display: none !important; }
+      .main::before, .main::after, .main-shimmer { display: none !important; }
+      .avatar-ring { box-shadow: none !important; }
+      .content { padding-bottom: 0 !important; }
+      .sidebar { padding-bottom: 0 !important; }
     }
 
     @media (max-width: 700px) {
@@ -667,6 +678,18 @@
     </div>
 
     <div class="content">
+
+      <!-- Career Objective -->
+      <div>
+        <div class="sec-title">
+          <span class="en">Career Objective</span>
+          <span class="vi">Mục Tiêu Nghề Nghiệp</span>
+        </div>
+        <p style="font-size:13.5px;color:#475569;line-height:1.75;">
+          <span class="en">To grow as a versatile developer at the intersection of <strong>game development</strong> and <strong>full-stack web engineering</strong> — building engaging, high-performance products that users love. I aim to deepen my expertise in interactive systems and AI-assisted workflows, while contributing to a team that values creativity, ownership, and continuous learning.</span>
+          <span class="vi">Phát triển bản thân trở thành lập trình viên đa năng tại giao điểm giữa <strong>lập trình game</strong> và <strong>phát triển web full-stack</strong> — xây dựng những sản phẩm hiệu năng cao, mang lại trải nghiệm hấp dẫn cho người dùng. Mục tiêu của tôi là nâng cao chuyên môn về hệ thống tương tác và workflow hỗ trợ AI, đồng thời đóng góp vào một môi trường đề cao sự sáng tạo, tinh thần trách nhiệm và học hỏi liên tục.</span>
+        </p>
+      </div>
 
       <!-- Summary -->
       <div>
