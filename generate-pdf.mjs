@@ -34,19 +34,14 @@ await new Promise(r => setTimeout(r, 1500));
 // set lang = EN (mặc định)
 await page.evaluate(() => setLang('en'));
 
-// emulate print để CSS @media print áp dụng trước khi đo
+// emulate print để CSS @media print áp dụng
 await page.emulateMediaType('print');
 await new Promise(r => setTimeout(r, 200));
 
-const { w, h } = await page.evaluate(() => {
-  const rect = document.querySelector('.cv').getBoundingClientRect();
-  return { w: Math.ceil(rect.width), h: Math.ceil(rect.height) };
-});
-
 await page.pdf({
   path: pdfPath,
-  width: `${w}px`,
-  height: `${h}px`,
+  format: 'A4',
+  preferCSSPageSize: true,
   waitForFonts: false,
   printBackground: true,
   margin: { top: '0', right: '0', bottom: '0', left: '0' },

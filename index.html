@@ -501,6 +501,7 @@
 
     /* print */
     @media print {
+      @page { size: A4; margin: 0; }
       *, *::before, *::after { animation: none !important; transition: none !important; }
       body { background: white !important; }
       body::before, body::after { display: none !important; }
@@ -515,6 +516,7 @@
       .avatar-ring { box-shadow: none !important; }
       .content { padding-bottom: 0 !important; }
       .sidebar { padding-bottom: 0 !important; }
+      .exp-card, .proj-card, .edu-item, .cert-item { break-inside: avoid; page-break-inside: avoid; }
     }
 
     @media (max-width: 700px) {
@@ -537,8 +539,8 @@
       </div>
       <div class="av-name">Trịnh Tuấn Cường</div>
       <div class="av-role">
-        <span class="en">AI-assisted Front-end &amp; Game Developer</span>
-        <span class="vi">Phát Triển Front-end &amp; Game Hỗ Trợ Bởi AI</span>
+        <span class="en">Front-end &amp; Game Developer</span>
+        <span class="vi">Lập Trình Front-end &amp; Game</span>
       </div>
     </div>
 
@@ -567,7 +569,7 @@
         </div>
         <div class="contact-row">
           <svg width="13" height="13" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
-          <a href="https://survival-game-2d.loutrinh2312000.workers.dev/" target="_blank">Portfolio →</a>
+          <a href="https://survival-game-2d.loutrinh2312000.workers.dev/" target="_blank"><span class="en">Live Game →</span><span class="vi">Chơi Game →</span></a>
         </div>
       </div>
     </div>
@@ -576,7 +578,7 @@
     <div class="sb-section">
       <div class="sb-title">
         <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/></svg>
-        <span class="en">Technical Skills</span><span class="vi">Kỹ Năng</span>
+        <span class="en">Technologies Used</span><span class="vi">Công Nghệ Đã Sử Dụng</span>
       </div>
 
       <div class="skill-block">
@@ -602,9 +604,10 @@
         <div class="skill-label">Frontend</div>
         <div class="tag-row">
           <span class="tag hi">React</span>
-          <span class="tag hi">Next.js</span>
           <span class="tag">Vite</span>
           <span class="tag">Firebase</span>
+          <span class="tag">Vue 3</span>
+          <span class="tag">Tailwind CSS</span>
         </div>
       </div>
 
@@ -621,7 +624,7 @@
       </div>
 
       <div class="skill-block">
-        <div class="skill-label"><span class="en">AI-assisted Workflow</span><span class="vi">Công cụ AI Hỗ trợ</span></div>
+        <div class="skill-label"><span class="en">Development Workflow</span><span class="vi">Quy Trình Phát Triển</span></div>
         <div class="tag-row">
           <span class="tag hi">Codex</span>
           <span class="tag hi">ChatGPT</span>
@@ -699,18 +702,6 @@
 
     <div class="content">
 
-      <!-- Career Objective -->
-      <div>
-        <div class="sec-title">
-          <span class="en">Career Objective</span>
-          <span class="vi">Mục Tiêu Nghề Nghiệp</span>
-        </div>
-        <p style="font-size:13.5px;color:#475569;line-height:1.75;">
-          <span class="en">To grow as an <strong>AI-assisted Front-end and Game Developer</strong>, using modern AI tools to turn product requirements into working interfaces and playable experiences. I seek a collaborative team where I can strengthen my technical fundamentals while contributing through rapid implementation, testing, debugging and continuous iteration.</span>
-          <span class="vi">Phát triển theo hướng <strong>Front-end và Game Developer ứng dụng AI</strong>, sử dụng các công cụ AI hiện đại để chuyển yêu cầu sản phẩm thành giao diện hoạt động và trải nghiệm game có thể chơi được. Mong muốn làm việc trong môi trường hợp tác để củng cố nền tảng kỹ thuật, đồng thời đóng góp qua khả năng triển khai nhanh, kiểm thử, sửa lỗi và cải tiến liên tục.</span>
-        </p>
-      </div>
-
       <!-- Summary -->
       <div>
         <div class="sec-title">
@@ -732,8 +723,8 @@
         <div class="exp-card">
           <div class="exp-top">
             <div class="exp-role">
-              <span class="en">AI-assisted Game Developer — Phaser / Godot</span>
-              <span class="vi">Game Developer Ứng Dụng AI — Phaser / Godot</span>
+              <span class="en">Game Developer — Phaser / Godot</span>
+              <span class="vi">Lập Trình Viên Game — Phaser / Godot</span>
             </div>
             <div class="exp-badge">
               <span class="en">08/2025 – Present</span>
@@ -783,8 +774,8 @@
             <span class="vi">Dự án công ty · Đang phát triển · Nhóm 4 người</span>
           </div>
           <div class="proj-desc">
-            <span class="en"><strong>AI-assisted Front-end Implementation</strong> for an AI workforce platform where businesses build multi-department AI teams, chat with agents using company documents and assign tasks. Used Codex, ChatGPT and Claude to implement and refine responsive bilingual screens across onboarding, SSE chat, 2D/3D office, skills marketplace, team administration, reports and wallet features.</span>
-            <span class="vi"><strong>Triển khai Front-end với sự hỗ trợ của AI</strong> cho nền tảng nhân sự AI, nơi doanh nghiệp xây dựng đội AI đa phòng ban, trò chuyện dựa trên tài liệu và giao việc. Sử dụng Codex, ChatGPT và Claude để triển khai, chỉnh sửa giao diện song ngữ responsive cho onboarding, chat SSE, văn phòng 2D/3D, chợ kỹ năng, quản trị đội ngũ, báo cáo và ví.</span>
+            <span class="en"><strong>Front-end Implementation</strong> for an AI workforce platform where businesses build multi-department AI teams, chat with agents using company documents and assign tasks. Implemented and refined responsive bilingual screens across onboarding, SSE chat, 2D/3D office, skills marketplace, team administration, reports and wallet features.</span>
+            <span class="vi"><strong>Triển khai Front-end</strong> cho nền tảng nhân sự AI, nơi doanh nghiệp xây dựng đội AI đa phòng ban, trò chuyện dựa trên tài liệu và giao việc. Triển khai, chỉnh sửa giao diện song ngữ responsive cho onboarding, chat SSE, văn phòng 2D/3D, chợ kỹ năng, quản trị đội ngũ, báo cáo và ví.</span>
           </div>
           <div class="tech-row" style="margin-top:10px;">
             <span class="tech-lbl">Stack</span>
@@ -808,8 +799,8 @@
             <span class="vi">Dự án công ty · 03/2026 – 07/2026 · Nhóm 5 người</span>
           </div>
           <div class="proj-desc">
-            <span class="en"><strong>AI-assisted Front-end Implementation</strong> across a multi-role community commerce ecosystem for customers, suppliers, partners, community stations and administrators. Implemented and debugged shopping, orders, QR pickup, referral/cashback, inventory, content, events and messaging interfaces, following existing API contracts and project patterns with PWA/Capacitor support.</span>
-            <span class="vi"><strong>Triển khai Front-end với sự hỗ trợ của AI</strong> cho hệ sinh thái thương mại cộng đồng gồm khách hàng, nhà cung cấp, đối tác, trạm cộng đồng và quản trị viên. Triển khai và sửa lỗi giao diện mua hàng, đơn hàng, nhận hàng QR, referral/cashback, kho, nội dung, sự kiện và nhắn tin theo API cùng pattern có sẵn; hỗ trợ PWA/Capacitor.</span>
+            <span class="en"><strong>Front-end Implementation</strong> across a multi-role community commerce ecosystem for customers, suppliers, partners, community stations and administrators. Implemented and debugged shopping, orders, QR pickup, referral/cashback, inventory, content, events and messaging interfaces, following existing API contracts and project patterns with PWA/Capacitor support.</span>
+            <span class="vi"><strong>Triển khai Front-end</strong> cho hệ sinh thái thương mại cộng đồng gồm khách hàng, nhà cung cấp, đối tác, trạm cộng đồng và quản trị viên. Triển khai và sửa lỗi giao diện mua hàng, đơn hàng, nhận hàng QR, referral/cashback, kho, nội dung, sự kiện và nhắn tin theo API cùng pattern có sẵn; hỗ trợ PWA/Capacitor.</span>
           </div>
           <div class="tech-row" style="margin-top:10px;">
             <span class="tech-lbl">Stack</span>
@@ -833,8 +824,8 @@
             <span class="vi">Dự án cá nhân · Đang phát triển · Phát triển độc lập</span>
           </div>
           <div class="proj-desc">
-            <span class="en">Personal 2D action-survival game developed iteratively with AI coding assistance. Implemented playable multiplayer rooms, Firestore friend invitations, Google sign-in, character selection, enemy waves, a 55-weapon system, skills and effects, loot/chests, inventory/shop, revive flow, responsive HUD and desktop/mobile controls; tested changes through repeated local and live builds.</span>
-            <span class="vi">Game hành động sinh tồn 2D cá nhân được phát triển từng bước với sự hỗ trợ của AI lập trình. Triển khai phòng multiplayer, mời bạn qua Firestore, đăng nhập Google, chọn nhân vật, đợt quái, hệ thống 55 vũ khí, kỹ năng–hiệu ứng, loot–rương, kho đồ–cửa hàng, hồi sinh, HUD responsive và điều khiển desktop/mobile; kiểm tra qua nhiều lần build local và live.</span>
+            <span class="en">Personal 2D action-survival game developed through continuous implementation, testing and iteration. Implemented playable multiplayer rooms, Firestore friend invitations, Google sign-in, character selection, enemy waves, a 55-weapon system, skills and effects, loot/chests, inventory/shop, revive flow, responsive HUD and desktop/mobile controls.</span>
+            <span class="vi">Game hành động sinh tồn 2D cá nhân được phát triển qua quá trình liên tục triển khai, kiểm thử và cải tiến. Xây dựng phòng multiplayer, mời bạn qua Firestore, đăng nhập Google, chọn nhân vật, đợt quái, hệ thống 55 vũ khí, kỹ năng–hiệu ứng, loot–rương, kho đồ–cửa hàng, hồi sinh, HUD responsive và điều khiển desktop/mobile.</span>
           </div>
           <div class="tech-row" style="margin-top:10px;">
             <span class="tech-lbl">Stack</span>
@@ -860,9 +851,13 @@
               </a>
             </div>
           </div>
+          <div class="proj-meta">
+            <span class="en">Personal Learning Project · Solo Developer</span>
+            <span class="vi">Dự án học tập cá nhân · Phát triển độc lập</span>
+          </div>
           <div class="proj-desc">
-            <span class="en">Created a learning-focused real-time Tic Tac Toe project with Vue and NestJS using AI guidance and technical documentation. Implemented room-ID joining, automatic X/O assignment, turn and winner checks, Socket.IO board updates, replay/leave actions and disconnect handling, then deployed the frontend and backend for live testing.</span>
-            <span class="vi">Xây dựng dự án học tập Tic Tac Toe thời gian thực bằng Vue và NestJS với hướng dẫn từ AI và tài liệu kỹ thuật. Triển khai vào phòng bằng mã, tự gán X/O, kiểm tra lượt–kết quả, cập nhật bàn cờ qua Socket.IO, chơi lại–rời phòng và xử lý mất kết nối; triển khai frontend/backend để kiểm thử thực tế.</span>
+            <span class="en">Created a learning-focused real-time Tic Tac Toe project with Vue, NestJS and technical documentation. Implemented room-ID joining, automatic X/O assignment, turn and winner checks, Socket.IO board updates, replay/leave actions and disconnect handling, then deployed the frontend and backend for live testing.</span>
+            <span class="vi">Xây dựng dự án học tập Tic Tac Toe thời gian thực bằng Vue, NestJS và tài liệu kỹ thuật. Triển khai vào phòng bằng mã, tự gán X/O, kiểm tra lượt–kết quả, cập nhật bàn cờ qua Socket.IO, chơi lại–rời phòng và xử lý mất kết nối; triển khai frontend/backend để kiểm thử thực tế.</span>
           </div>
           <div class="tech-row">
             <span class="tech-lbl">Stack</span>
