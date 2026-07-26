@@ -463,6 +463,7 @@
       overflow: hidden;
     }
     .proj-card + .proj-card { margin-top: 12px; }
+    .vi-page-two-projects { margin-top: 12px; }
     .proj-card::before {
       content: '';
       position: absolute;
@@ -525,6 +526,7 @@
       .sidebar { padding-bottom: 0 !important; }
       .proj-card { padding: 13px 16px; }
       .proj-card + .proj-card { margin-top: 8px; }
+      .vi-page-two-projects { margin-top: 8px; }
       .proj-head { margin-bottom: 6px; }
       .proj-meta { margin-bottom: 6px; }
       .proj-desc { line-height: 1.55; }
@@ -539,6 +541,13 @@
       body.lang-vi .proj-card--vi-page-two .tech-row { margin-top: 10px !important; }
       body.lang-vi .comp-grid { gap: 8px; }
       body.lang-vi .comp { padding-top: 7px; padding-bottom: 7px; }
+      body.lang-vi .vi-page-two-projects {
+        break-before: page;
+        page-break-before: always;
+        margin-top: 0;
+        padding-top: 22px;
+      }
+      body.lang-vi .sb-section--vi-page-two { padding-top: 22px; }
       .exp-card, .proj-card, .edu-item, .cert-item { break-inside: avoid; page-break-inside: avoid; }
     }
 
@@ -677,7 +686,7 @@
     </div>
 
     <!-- Certifications -->
-    <div class="sb-section">
+    <div class="sb-section sb-section--vi-page-two">
       <div class="sb-title">
         <svg width="11" height="11" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/></svg>
         <span class="en">Certifications</span><span class="vi">Chứng Chỉ</span>
@@ -836,6 +845,7 @@
             <span class="chip">Capacitor / PWA</span>
           </div>
         </div>
+        <div class="vi-page-two-projects">
         <div class="proj-card proj-card--vi-page-two">
           <div class="proj-head">
             <div class="proj-name">VAPEC</div>
@@ -942,6 +952,7 @@
             <span class="chip">Socket.IO</span>
             <span class="chip">MongoDB</span>
           </div>
+        </div>
         </div>
       </div>
 
