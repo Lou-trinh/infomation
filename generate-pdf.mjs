@@ -4,7 +4,11 @@ import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const htmlPath = path.join(__dirname, 'index.html');
-const pdfPath  = path.join(__dirname, 'cv-trinh-tuan-cuong.pdf');
+const language = process.argv[2]?.toLowerCase() === 'vi' ? 'vi' : 'en';
+const pdfFileName = language === 'vi'
+  ? 'cv-trinh-tuan-cuong-vi.pdf'
+  : 'cv-trinh-tuan-cuong.pdf';
+const pdfPath = path.join(__dirname, pdfFileName);
 
 const browser = await puppeteer.launch({
   headless: true,
@@ -31,8 +35,8 @@ await page.goto(`file:///${htmlPath.replace(/\\/g, '/')}`, {
 // chờ font Google Fonts load xong
 await new Promise(r => setTimeout(r, 1500));
 
-// set lang = EN (mặc định)
-await page.evaluate(() => setLang('en'));
+// Chọn ngôn ngữ từ tham số CLI; mặc định là tiếng Anh.
+await page.evaluate((selectedLanguage) => setLang(selectedLanguage), language);
 
 // emulate print để CSS @media print áp dụng
 await page.emulateMediaType('print');

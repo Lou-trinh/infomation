@@ -2,7 +2,8 @@
   "type": "module",
   "scripts": {
     "build": "node build-site.mjs",
-    "pdf": "node generate-pdf.mjs"
+    "pdf": "node generate-pdf.mjs",
+    "pdf:vi": "node generate-pdf.mjs vi"
   },
   "devDependencies": {
     "puppeteer": "^25.1.0"
