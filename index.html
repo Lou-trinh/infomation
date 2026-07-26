@@ -521,8 +521,16 @@
       .sidebar::before, .sidebar::after { display: none !important; }
       .main::before, .main::after, .main-shimmer { display: none !important; }
       .avatar-ring { box-shadow: none !important; }
-      .content { padding-bottom: 0 !important; }
+      .content { padding: 28px 32px 0 !important; gap: 22px; }
       .sidebar { padding-bottom: 0 !important; }
+      .proj-card { padding: 13px 16px; }
+      .proj-card + .proj-card { margin-top: 8px; }
+      .proj-head { margin-bottom: 6px; }
+      .proj-meta { margin-bottom: 6px; }
+      .proj-desc { line-height: 1.55; }
+      .proj-card .tech-row { margin-top: 8px !important; }
+      .comp-grid { gap: 6px; }
+      .comp { padding: 5px 12px; font-size: 11.5px; }
       .exp-card, .proj-card, .edu-item, .cert-item { break-inside: avoid; page-break-inside: avoid; }
     }
 
@@ -818,6 +826,31 @@
             <span class="chip">Vite / Turborepo</span>
             <span class="chip">TanStack Query</span>
             <span class="chip">Capacitor / PWA</span>
+          </div>
+        </div>
+        <div class="proj-card">
+          <div class="proj-head">
+            <div class="proj-name">VAPEC</div>
+            <a class="proj-link" href="https://vapec.vn/" target="_blank">
+              <svg width="12" height="12" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/></svg>
+              Live Website
+            </a>
+          </div>
+          <div class="proj-meta">
+            <span class="en">Production Platform · Collaborative Project</span>
+            <span class="vi">Nền tảng Production · Dự án Nhóm</span>
+          </div>
+          <div class="proj-desc">
+            <span class="en">Implemented production React features for the Vietnam Private Enterprises Association across <strong>57 routes</strong>, including public content, news/audio, member registration, four role-based dashboards, showroom and storefront experiences. Integrated API-driven content, cookie-session authentication, TanStack Query and Cloudflare Functions for SPA routing and dynamic social metadata.</span>
+            <span class="vi">Triển khai tính năng React production cho Hiệp hội Doanh nghiệp Tư nhân Việt Nam trên <strong>57 route</strong>, gồm nội dung công khai, tin tức/audio, đăng ký hội viên, bốn dashboard theo vai trò, showroom và gian hàng. Tích hợp nội dung từ API, xác thực cookie-session, TanStack Query và Cloudflare Functions cho SPA routing cùng social metadata động.</span>
+          </div>
+          <div class="tech-row" style="margin-top:10px;">
+            <span class="tech-lbl">Stack</span>
+            <span class="chip">React 18</span>
+            <span class="chip">TypeScript</span>
+            <span class="chip">TanStack Query</span>
+            <span class="chip">Vite</span>
+            <span class="chip">Cloudflare Functions</span>
           </div>
         </div>
         <div class="proj-card">
