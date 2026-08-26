@@ -1,14 +1,25 @@
 import puppeteer from 'puppeteer';
+import { mkdir } from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const htmlPath = path.join(__dirname, 'index.html');
-const language = process.argv[2]?.toLowerCase() === 'vi' ? 'vi' : 'en';
-const pdfFileName = language === 'vi'
+const args = process.argv.slice(2).map(argument => argument.toLowerCase());
+const language = args.includes('vi') ? 'vi' : 'en';
+const gmailSafe = args.includes('gmail') || args.includes('--gmail');
+const basePdfFileName = language === 'vi'
   ? 'cv-trinh-tuan-cuong-vi.pdf'
   : 'cv-trinh-tuan-cuong.pdf';
-const pdfPath = path.join(__dirname, pdfFileName);
+const pdfFileName = gmailSafe
+  ? basePdfFileName.replace(/\.pdf$/i, '-gmail.pdf')
+  : basePdfFileName;
+const pdfDirectory = gmailSafe
+  ? path.join(__dirname, 'output', 'pdf')
+  : __dirname;
+
+await mkdir(pdfDirectory, { recursive: true });
+const pdfPath = path.join(pdfDirectory, pdfFileName);
 
 const browser = await puppeteer.launch({
   headless: true,
@@ -37,6 +48,18 @@ await new Promise(r => setTimeout(r, 1500));
 
 // Chọn ngôn ngữ từ tham số CLI; mặc định là tiếng Anh.
 await page.evaluate((selectedLanguage) => setLang(selectedLanguage), language);
+
+// Gmail can falsely flag link-rich interactive PDFs. Keep the visible anchor
+// content and styling, but omit all interactive link annotations in safe copies.
+if (gmailSafe) {
+  await page.evaluate(() => {
+    for (const anchor of document.querySelectorAll('a')) {
+      anchor.removeAttribute('href');
+      anchor.removeAttribute('target');
+      anchor.removeAttribute('rel');
+    }
+  });
+}
 
 // emulate print để CSS @media print áp dụng
 await page.emulateMediaType('print');

@@ -3,7 +3,9 @@
   "scripts": {
     "build": "node build-site.mjs",
     "pdf": "node generate-pdf.mjs",
-    "pdf:vi": "node generate-pdf.mjs vi"
+    "pdf:vi": "node generate-pdf.mjs vi",
+    "pdf:gmail": "node generate-pdf.mjs gmail",
+    "pdf:vi:gmail": "node generate-pdf.mjs vi gmail"
   },
   "devDependencies": {
     "puppeteer": "^25.1.0"
